@@ -2,19 +2,23 @@ def main():
     ##################################################
     # Comlete your code here
     ##################################################
+    email = input('Enter your string ')
 
-    import random 
-
-    n1 = random.randint(0,100)
-    n2 = random.randint(0,100)
-    n3 = random.randint(0,100)
-    print (n1, n2, n3)
-
-    if n1 < n2 and n1 < n3:
-        print (f'{n1} is the smallest number')
-    elif n2 < n1 and n2 < n3:
-        print (f'{n2} is the smallest number')
+    flag = True
+    if not email[0].isalpha():
+        flag = False
+    lenemail = len(email)
+    if lenemail <= 5 or lenemail >= 30:
+        flag = False
+    if email.find('@') == -1:
+        flag = False
     else:
-        print (f'{n3} is the smallest number')
+         atidx = email.find('@')
+    if email[atidx+1:].find('.') == -1:
+        flag = False
+    
+    print (flag)
+
+
 if __name__ == '__main__':
-    main()
+     main()
